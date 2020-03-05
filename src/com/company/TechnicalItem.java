@@ -15,9 +15,4 @@ public class TechnicalItem extends GenericItem {
         }
         return this == o;
     }
-
-    TechnicalItem(Integer ID, String name, Float price, Short warrantyTime) {
-        super(ID, name, price);
-        this.warrantyTime = warrantyTime;
-    }
 }

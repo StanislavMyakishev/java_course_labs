@@ -2,6 +2,7 @@ package com.company;
 
 public class GenericItem implements Cloneable {
     public int ID;
+    static int currentID;
     public String name;
     public float price;
     public GenericItem analog = null;
@@ -31,11 +32,25 @@ public class GenericItem implements Cloneable {
         return this.analog.clone();
     }
 
-    public String toString() { return getClass().getSimpleName() + '@' + this.ID; }
+    public String toString() {
+        return getClass().getSimpleName() + '@' + this.ID;
+    }
 
-    GenericItem(Integer ID, String name, Float price) {
-        this.ID = ID;
+    public GenericItem(String name, float price, GenericItem analog) {
+        this.ID = GenericItem.currentID++;
         this.name = name;
         this.price = price;
+        this.analog = analog;
+    }
+
+    public GenericItem(String name, float price, Category category) {
+        this.ID = GenericItem.currentID++;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+    }
+
+    public GenericItem() {
+        this.ID = GenericItem.currentID++;
     }
 }
