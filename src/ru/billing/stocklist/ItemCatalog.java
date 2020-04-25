@@ -33,7 +33,7 @@ public class ItemCatalog {
                 throw new ItemAlreadyExistsException("Item Already Exists in HashMap");
             }
         }
-//        IN CASE
+//        IN CASE IF AL CHECK WILL BE REQUIRED
 //        for (GenericItem entry : ALCatalog) {
 //            if (entry.equals(item)) {
 //                throw new ItemAlreadyExistsException("Item Already Exists in HashMap");
