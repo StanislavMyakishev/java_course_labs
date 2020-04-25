@@ -1,8 +1,13 @@
-package com.company;
+package ru.billing.client;
+
+import ru.billing.stocklist.Category;
+import ru.billing.stocklist.FoodItem;
+import ru.billing.stocklist.GenericItem;
+import ru.billing.stocklist.ItemCatalog;
 
 import java.util.Date;
 
-public class CatalogStubLoader implements CatalogLoader{
+public class CatalogStubLoader implements CatalogLoader {
     @Override
     public void load(ItemCatalog itemCatalog) {
         GenericItem item1 = new GenericItem("SONY TV", 23000, Category.GENERAL);

@@ -1,8 +1,7 @@
-package com.company;
+package ru.billing.client;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Random;
+import ru.billing.stocklist.GenericItem;
+import ru.billing.stocklist.ItemCatalog;
 
 public class Main {
     public static void main(String[] args) {

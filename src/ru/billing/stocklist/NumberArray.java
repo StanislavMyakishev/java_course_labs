@@ -1,4 +1,4 @@
-package com.company;
+package ru.billing.stocklist;
 
 public class NumberArray<T extends Number> {
     private T[] arrNums;
