@@ -60,5 +60,7 @@ public class ItemCatalog {
         return null;
     }
 
-
+    public String toString() {
+        return getClass().getSimpleName() + '@' + this.getALCatalog().size();
+    }
 }
