@@ -1,5 +1,8 @@
 package ru.billing.stocklist;
 
+import java.lang.reflect.Field;
+import java.util.Objects;
+
 public class GenericItem implements Cloneable {
     private int ID;
     private static int currentID;
@@ -61,11 +64,20 @@ public class GenericItem implements Cloneable {
                 ID, name, price, analog, category);
     }
 
+    @Override
     public boolean equals(Object o) {
-        if (!(o instanceof GenericItem)) {
-            return false;
-        }
-        return this == o;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GenericItem that = (GenericItem) o;
+        return Float.compare(that.getPrice(), price) == 0 &&
+                name.equals(that.getName()) &&
+                analog.equals(that.getAnalog()) &&
+                category == that.getCategory();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ID, name, price, analog, category);
     }
 
     public Object clone() throws
@@ -96,6 +108,14 @@ public class GenericItem implements Cloneable {
         this.name = name;
         this.price = price;
         this.category = category;
+    }
+
+    public GenericItem(String name, float price, Category category, GenericItem analog) {
+        this.ID = GenericItem.currentID++;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.analog = analog;
     }
 
     public GenericItem() {

@@ -1,7 +1,11 @@
 package ru.billing.stocklist;
 
+import ru.billing.exceptions.ItemAlreadyExistsException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class ItemCatalog {
     private HashMap<Integer, GenericItem> catalog = new HashMap<Integer, GenericItem>();
@@ -23,7 +27,18 @@ public class ItemCatalog {
         this.ALCatalog = ALCatalog;
     }
 
-    public void addItem(GenericItem item) {
+    public void addItem(GenericItem item) throws ItemAlreadyExistsException {
+        for (Map.Entry<Integer, GenericItem> entry : catalog.entrySet()) {
+            if (entry.getValue().equals(item)){
+                throw new ItemAlreadyExistsException("Item Already Exists in HashMap");
+            }
+        }
+//        IN CASE
+//        for (GenericItem entry : ALCatalog) {
+//            if (entry.equals(item)) {
+//                throw new ItemAlreadyExistsException("Item Already Exists in HashMap");
+//            }
+//        }
         catalog.put(item.getID(), item);
         ALCatalog.add(item);
     }
